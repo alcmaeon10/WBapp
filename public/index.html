@@ -1,57 +1,61 @@
 <!DOCTYPE html>
-<html ng-app="my-app">
+<html ng-app="myApp">
 
 <head>
     <!-- This webPage was designed by Enrique Diaz-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js" type="text/javascript"></script>
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-    <script src="javascripts/myapp.js" type="text/javascript"></script>
     <link rel="stylesheet" href="stylesheets/bootstrap.css">
     <link rel="stylesheet" href="stylesheets/bootstrap-theme.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
-<body ng-controller="IndexCtrl">
+<body ng-controller="myCtrl">
     <!--     <div google-chart="PieChart" ng-model="data1" > -->
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse col-lg-12 col-md-12 col-xs-12">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Correlations from World Bank Data App</a>
             </div>
 
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-left ">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button ng-click="value=true" type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </nav>
 
+    <img ng-show="value" src="figure.png" class="img-fluid col-lg-8 col-md-8 col-xs-12" alt="Responsive image">
 
-    <div google-chart="ScatterChart" ng-model="data2">
-    </div>
+
     <!--   <div google-chart="ScatterChart" ng-model="data1"></div> -->
     <div class="col-lg-8 col-md-8">
-        <table class="well table table-striped ">
+        <table ng-show="value" class="well table table-striped col-lg-6 col-md-6 col-xs-12">
             <thead>
                 <tr>
-                    <td>Location</td>
-                    <td>Mag</td>
+                    <td class="thUp">Country Query</td>
                 </tr>
             </thead>
-            <tr ng-repeat="item in content.data.features">
-                <td>
-                    {{item.properties.place}}
+            <tr>
+                <td class="th">
+                    Id: USA
                 </td>
-                <td>
-                    {{item.properties.mag}}
+            </tr>
+            <tr>
+                <td class="th">
+                    Income Type: High Income
                 </td>
             </tr>
         </table>
     </div>
-    <script src="javascripts/charts.js" type="text/javascript"></script>
-
+    <script>
+        angular.module("myApp", [])
+            .controller("myCtrl", function ($scope) {
+                $scope.data = [{ Id: "Bulbasaur", Type: "High Income" }]
+            })
+    </script>
 </body>
 
 </html>
