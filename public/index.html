@@ -28,11 +28,11 @@
     </nav>
 
     <img ng-show="value" src="figure.png" class="img-fluid col-lg-8 col-md-8 col-xs-12" alt="Responsive image">
-    <img ng-show="value" src="figure2.png" class="img-fluid col-lg-8 col-md-8 col-xs-12" alt="Responsive image">
+    <img ng-hide="value" src="figure2.png" class="img-fluid col-lg-8 col-md-8 col-xs-12" alt="Responsive image">
 
     <!--   <div google-chart="ScatterChart" ng-model="data1"></div> -->
     <div class="col-lg-8 col-md-8">
-        <table ng-show="value" class="well table table-striped col-lg-6 col-md-6 col-xs-12">
+        <table ng-hide="value" class="well table table-striped col-lg-6 col-md-6 col-xs-12">
             <thead>
                 <tr>
                     <td class="thUp">Country Query</td>
